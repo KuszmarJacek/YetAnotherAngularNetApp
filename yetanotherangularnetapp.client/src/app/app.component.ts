@@ -14,24 +14,9 @@ interface WeatherForecast {
   styleUrl: './app.component.css'
 })
 export class AppComponent implements OnInit {
-  public forecasts: WeatherForecast[] = [];
-
-  constructor(private http: HttpClient) {}
+  title = "Happy Title :D"
 
   ngOnInit() {
-    this.getForecasts();
-  }
 
-  getForecasts() {
-    this.http.get<WeatherForecast[]>('/api/weatherforecast').subscribe(
-      (result) => {
-        this.forecasts = result;
-      },
-      (error) => {
-        console.error(error);
-      }
-    );
   }
-
-  title = 'yetanotherangularnetapp.client';
 }
