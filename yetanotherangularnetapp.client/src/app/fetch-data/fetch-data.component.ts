@@ -12,7 +12,7 @@ interface WeatherForecast {
 @Component({
   selector: 'app-fetch-data',
   templateUrl: './fetch-data.component.html',
-  styleUrl: './fetch-data.component.css'
+  styleUrl: './fetch-data.component.scss'
 })
 export class FetchDataComponent {
   public forecasts?: WeatherForecast[];
@@ -24,13 +24,13 @@ export class FetchDataComponent {
   }
 
   getForecasts() {
-    this.http.get<WeatherForecast[]>(environment.baseUrl + "api/weatherforecast").subscribe(
-      (result) => {
+    this.http.get<WeatherForecast[]>(environment.baseUrl + "api/weatherforecast").subscribe({
+      next: (result) => {
         this.forecasts = result;
       },
-      (error) => {
+      error: (error) => {
         console.error(error);
       }
-    )
+    })
   }
 }

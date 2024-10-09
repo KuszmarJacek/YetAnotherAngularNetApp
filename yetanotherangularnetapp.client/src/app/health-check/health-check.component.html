@@ -1,0 +1,21 @@
+<h1>Health Check Works! :D</h1>
+<p>Results:</p>
+<p *ngIf="!result">Loading...</p>
+<table aria-labelledby="tableLabel" *ngIf="result">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Response Time</th>
+      <th>Status</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let check of result.checks">
+      <td>{{check.name}}</td>
+      <td>{{check.responseTime}}</td>
+      <td>{{check.status}}</td>
+      <td>{{check.description}}</td>
+    </tr>
+  </tbody>
+</table>
